@@ -1,0 +1,568 @@
+<html lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>
+         Aura shopping 🛒- Cakes
+      </title>
+      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <style>
+         body {
+             font-family: Arial, sans-serif;
+             margin: 1px;
+             padding: 0;
+             box-sizing: border-box;
+         }
+         header {
+             background-color: #dfe2e4;
+             position: sticky;
+             top: 0;
+             z-index: 1000; /* Ensure the header stays on top */
+         }
+ 
+         .headermiddle {
+             display: flex;
+             align-items: center;
+             margin: 0 auto;
+             justify-content: space-between;
+             flex-wrap: wrap;
+             border-radius: 10px;
+             padding: 0px 20px;
+         }
+         .headermiddle .weblogo img {
+             height: 100px;
+             width: 100px;
+             padding-left: 10px;
+             padding-right: 10px;
+             transition: transform 0.6s ease, filter 0.6s ease;
+         }
+         .headermiddle .weblogo img:hover {
+             transform: scale(1.1);
+             filter: brightness(1.2);
+         }
+         /* Responsive Search Bar */
+         .headermiddle .search-bar {
+             flex: 1;
+             padding: 0;
+             display: flex;
+             align-items: center;
+             justify-content: flex-start;
+             width: 100%; /* Responsive width */
+             height: 45px;
+             margin: 0;
+             border-radius: 10px;
+             overflow: hidden;
+             box-shadow: 0 4px 10px #00000026;
+             background-color: #ffffff;
+         }
+ 
+         .search-input {
+             flex: 1;
+             border: none;
+             padding: 10px 15px; 
+             font-size: 16px;
+             outline: none;
+             color: #333;
+         }
+ 
+         .search-button {
+             background-color: #484848;
+             color: white;
+             border: none;
+             padding: 12px 20px; 
+             font-size: 16px; 
+             cursor: pointer;
+             transition: background-color 0.3s ease, transform 0.2s ease;
+             border-radius: 5px;
+         }
+ 
+         .search-button:hover {
+             background-color: #323131;
+             transform: scale(1.10);
+         }
+ 
+         .search-container {
+             max-width: 90%;
+             margin: 0 auto;
+             padding: 0% 5%;
+         }
+ 
+         .search-input::placeholder {
+             color: #aaa;
+             font-style: italic;
+         }
+ 
+         /* Media Queries for Responsive Design */
+         @media (min-width: 576px) {
+             .search-bar {
+                 height: 50px;
+             }
+             .search-input {
+                 padding: 12px 18px;
+                 font-size: 17px;
+             }
+             .search-button {
+                 padding: 14px 22px;
+                 font-size: 17px;
+             }
+         }
+ 
+         @media (min-width: 768px) {
+             .search-bar {
+                 height: 55px;
+             }
+             .search-input {
+                 padding: 14px 20px;
+                 font-size: 18px;
+             }
+             .search-button {
+                 padding: 16px 25px;
+                 font-size: 18px;
+             }
+         }
+ 
+         @media (min-width: 992px) {
+             .search-bar {
+                 height: 60px;
+             }
+             .search-input {
+                 padding: 16px 22px;
+                 font-size: 19px;
+             }
+             .search-button {
+                 padding: 18px 28px;
+                 font-size: 19px;
+             }
+         }
+ 
+         .headermiddle .icons a {
+             color: #333;
+             text-decoration: none;
+         }
+         .headermiddle .hotline_nb {
+             padding-left: 20px;
+             padding-right: 20px;
+         }
+         .headermiddle .auth-buttons  {
+             padding-right: 10px;
+         }
+         .headermiddle .auth-buttons a {
+             display: inline-flex;
+             align-items: center;
+             justify-content: center;
+             padding: 10px 20px;
+             color: #333;
+             font-size: 20px;
+             text-decoration: none;
+             border-radius: 15px;
+             background-color: #fff;
+             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+         }
+         .headermiddle .auth-buttons a:hover {
+             border: 0.1px solid #333;
+             color: #333;
+             box-shadow: 0 0 1px silver;
+         }
+         .headermiddle .auth-buttons a i {
+             font-size: 20px;
+             margin-right: 20px;
+         }
+         @media (max-width: 768px) {
+         .headermiddle {
+             flex-direction: column;
+             align-items: center;
+         }
+ 
+         .headermiddle .weblogo img {
+             height: 70px;
+             width: 70px;
+             margin-bottom: 10px;
+         }
+ 
+         .headermiddle .search-bar {
+             width: 90%;
+             margin-bottom: 10px;
+         }
+ 
+         .headermiddle .hotline_nb {
+             margin-bottom: 10px;
+         }
+ 
+         .headermiddle .auth-buttons {
+             margin-bottom: 10px;
+         }
+ 
+         .headermiddle .auth-buttons a {
+             font-size: 16px;
+             padding: 8px 15px;
+         }
+ 
+         .headermiddle .icons a {
+             font-size: 18px;
+         }
+         }
+         .desktop-navbar {
+             display: flex;
+             justify-content: center;
+             background-color: #484848;
+             padding: 10px;
+             position: sticky;
+         }
+ 
+         .desktop-navbar a {
+             color: white;
+             text-decoration: none;
+             margin: 0 15px;
+             font-size: 18px;
+             padding: 8px 15px;
+             border-radius: 5px;
+             transition: background-color 0.3s ease;
+             position: sticky;
+         }
+ 
+         .desktop-navbar a:hover {
+             background-color: #333;
+         }
+ 
+         
+         .maincategory {
+             display: none; 
+         }
+ 
+         
+         .mobile-menu {
+             display: none; 
+         }
+ 
+         
+         @media (max-width: 768px) {
+             .maincategory {
+                 display: block; 
+                 background-color: #484848;
+                 color: white;
+                 font-size: 24px;
+                 text-align: center;
+                 padding: 10px;
+                 cursor: pointer;
+             }
+ 
+             .desktop-navbar {
+                 display: none; 
+             }
+         }
+ 
+         .header_bottom .maincategory {
+             text-align: center;
+             padding: 10px 5px;
+             color: #ffffff;
+             background-color:#484848; 
+             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+         }
+         .header_bottom .maincategory nav a {
+             margin: 28.5px;
+             font-size: 19px;
+             text-decoration: none;
+             color: rgb(255, 255, 255);
+             position: relative; 
+             transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; 
+         }
+         .header_bottom  .maincategory nav a:hover {
+             color: #333; 
+             transform: scale(2.2); 
+             transition: transform 0.1s ;
+             border: 1px solid white;
+             border-radius: 50px;
+             margin: 10px;
+             padding: 9px 15px;
+             background-color: white;
+             padding: 10px 15px;
+             font-weight: bold;
+         }
+         .header_bottom  .maincategory nav a::after {
+             content: '';
+             position: absolute;
+             left: 50%;
+             bottom: -5px;
+             width: 0;
+             height: 2px;
+             background-color: #090909;
+             transition: width 0.3s ease, left 0.3s ease;
+         }
+            /* About Us Header */
+         .about-header {
+            position: sticky; 
+            top: 0; 
+            z-index: 500; 
+            background-color: #f9f9f9; 
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #ccc; 
+         }
+
+         .about-header h1 {
+            font-size: 2rem;
+            color: #333;
+            margin: 0; 
+         }
+         .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: transparent;
+            border-radius: 8px;
+            overflow: hidden;
+            position: sticky;
+         }
+
+         .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: justify;
+            height: 400px; 
+            position: relative;
+            overflow: hidden;
+            color: #333;
+         }
+
+         .about-text p {
+            position: absolute;
+            bottom: -600px; 
+            width: 100%;
+            padding: 0 20px;
+            color: #333;
+         }
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Toggle Button for Mobile */
+        .maincategory {
+            display: none; 
+            background-color: #484848;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .maincategory:hover {
+            background-color: #333;
+        }
+
+        /* Desktop Navbar */
+        .desktop-navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #484848;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .desktop-navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .desktop-navbar a:hover {
+            background-color: #333;
+            transform: scale(1.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            background-color: #484848;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #333;
+        }
+
+       
+        .mobile-menu.hidden {
+            display: none;
+        }
+
+        /* Responsive Behavior */
+        @media (max-width: 768px) {
+            .desktop-navbar {
+                display: none; 
+            }
+
+            .maincategory {
+                display: block; 
+            }
+        }
+         footer {
+             background-color: #343a40;
+             color: #fff;
+             padding: 20px;
+             text-align: center;
+         }
+         footer .footer-content {
+             display: flex;
+             justify-content: space-around;
+             flex-wrap: wrap;
+         }
+         footer .footer-content div {
+             margin: 10px;
+         }
+         footer .footer-content h3 {
+             font-size: 1.2em;
+             margin-bottom: 10px;
+         }
+         footer .footer-content ul {
+             list-style: none;
+             padding: 0;
+         }
+         footer .footer-content ul li {
+             margin: 5px 0;
+         }
+         footer .footer-content ul li a {
+             color: #ffc107;
+             text-decoration: none;
+         }
+         footer p {
+             margin: 20px 0 0;
+         }
+       </style>
+   </head>
+    <body>
+      <header>
+         <div class="headermiddle">
+            <a class="weblogo" href="index.html">
+            <img alt="CoolGadgets Logo"  src="logo.png" height="160" width="160"/>
+            </a>
+            <div class="search-bar">
+               <input placeholder="Search for products..." class="search-input"/>
+               <button class="search-button"><i class='bx bx-search'></i></button>
+            </div>
+            <a class="hotline_nb" href="#">
+               <img alt="Hotline number"  src="hotline.png" height="65" width="auto">
+               </a>
+            <div class="auth-buttons">
+               <a href="signup_login.html">
+                  <i class='bx bxs-user-circle'></i>  Account
+               </a>
+            </div>
+            <div class="icons">
+               <a href="cart.html">
+                <i class='bx bxs-cart bx-md' ></i>
+               </i>
+               </a>
+            </div>
+         </div>
+         <div class="maincategory" onclick="toggleMenu()">☰</div>
+        <!-- Desktop Navbar -->
+        <nav class="desktop-navbar">
+            <a class="home" href="index.html">Home</a>
+            <a class="flowers" href="flowers.html">Flowers</a>
+            <a class="jewelry" href="jewelry.html">Jewelry</a>
+            <a class="cakes" href="cakes.html">Cakes</a>
+            <a class="perfumes" href="perfumes.html">Perfumes</a>
+            <a class="about" href="aboutus.html">About Us</a>
+        </nav>
+        <!-- Mobile Navbar -->
+        <nav id="mobileMenu" class="mobile-menu hidden">
+            <a class="home" href="index.html">Home</a>
+            <a class="flowers" href="flowers.html">Flowers</a>
+            <a class="jewelry" href="jewelry.html">Jewelry</a>
+            <a class="cakes" href="cakes.html">Cakes</a>
+            <a class="perfumes" href="perfumes.html">Perfumes</a>
+            <a class="about" href="aboutus.html">About Us</a>
+        </nav>
+      </header>
+         <section class="about-header">
+            <h1>About Us</h1>
+         </section>
+         <div class="container">
+            <div class="about-text">
+               <p id="aboutText">
+                  Welcome to Aura shopping, your ultimate destination for premium products that add value and joy to your life. 
+                  Our journey began with a vision to create an online marketplace where quality meets convenience. Today, we proudly serve thousands of customers, 
+                  offering a diverse range of products including delectable cakes, vibrant flowers, exquisite jewelry, and captivating perfumes. 
+                  Each item in our collection is handpicked to ensure it meets our high standards of quality and craftsmanship. <br><br>
+   
+                  At Aura shopping, we are driven by our core values of integrity, innovation, and customer satisfaction. 
+                  We believe that shopping should be more than just a transaction—it should be an experience. 
+                  That’s why we’ve invested in creating a user-friendly platform that allows you to browse, select, and purchase your favorite products effortlessly. 
+                  Our secure payment options and reliable delivery services ensure peace of mind with every order.<br><br>
+   
+                  Our cakes are crafted with the finest ingredients, ensuring a delightful taste that brings people together. 
+                  Our flower arrangements are designed to express emotions and make moments memorable. 
+                  Our jewelry collection is a testament to elegance and style, while our perfumes capture the essence of sophistication and allure.<br><br>
+   
+                  Behind the scenes, our dedicated team works tirelessly to bring you the best products and services. 
+                  From sourcing high-quality items to ensuring timely delivery, we are committed to exceeding your expectations. 
+                  We continuously strive to innovate and improve, guided by the feedback and trust of our valued customers.<br><br>
+   
+                  Thank you for choosing Aura shopping as your trusted partner for all your gifting and lifestyle needs. 
+                  Whether you’re celebrating a special occasion, expressing your feelings, or simply treating yourself, 
+                  we are here to make every moment extraordinary. Together, let’s create memories that last a lifetime. 
+                  Your satisfaction is our greatest reward, and we look forward to serving you for years to come.
+               </p>
+            </div>
+         </div>
+         <footer>
+            <p>&copy; 2025 Aura Shopping. All Rights Reserved.</p>
+         </footer>
+         <script>
+            const aboutText = document.getElementById("aboutText");
+            let position = -600; 
+            const speed = 1; 
+   
+            function scrollText() {
+               position += speed; 
+               aboutText.style.bottom = position + "px";
+   
+               
+               if (position > 400) {
+                  position = -600; 
+               }
+   
+               requestAnimationFrame(scrollText);
+            }
+   
+            scrollText();
+         </script>
+         <!-- js for mobile menu -->
+        <script>
+            function toggleMenu() {
+                const mobileMenu = document.getElementById('mobileMenu');
+                mobileMenu.classList.toggle('hidden'); 
+            }
+        </script>
+</body>
+</html>
+
+
+
+

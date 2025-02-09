@@ -1,0 +1,749 @@
+<html lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>
+         Aurora Finds 🛒-flowers
+      </title>
+      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #dfe2e4;
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Ensure the header stays on top */
+        }
+
+        .headermiddle {
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-radius: 10px;
+            padding: 0px 20px;
+        }
+        .headermiddle .weblogo img {
+            height: 100px;
+            width: 100px;
+            padding-left: 10px;
+            padding-right: 10px;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+        .headermiddle .weblogo img:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+        /* Responsive Search Bar */
+        .headermiddle .search-bar {
+            flex: 1;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%; /* Responsive width */
+            height: 45px;
+            margin: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px #00000026;
+            background-color: #ffffff;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 10px 15px; /* Adjust padding for responsiveness */
+            font-size: 16px; /* Adjust font size for responsiveness */
+            outline: none;
+            color: #333;
+        }
+
+        .search-button {
+            background-color: #484848;
+            color: white;
+            border: none;
+            padding: 12px 20px; /* Adjust padding for responsiveness */
+            font-size: 16px; /* Adjust font size for responsiveness */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 5px;
+        }
+
+        .search-button:hover {
+            background-color: #323131;
+            transform: scale(1.10);
+        }
+
+        .search-container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 0% 5%;
+        }
+
+        .search-input::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (min-width: 576px) {
+            .search-bar {
+                height: 50px;
+            }
+            .search-input {
+                padding: 12px 18px;
+                font-size: 17px;
+            }
+            .search-button {
+                padding: 14px 22px;
+                font-size: 17px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .search-bar {
+                height: 55px;
+            }
+            .search-input {
+                padding: 14px 20px;
+                font-size: 18px;
+            }
+            .search-button {
+                padding: 16px 25px;
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .search-bar {
+                height: 60px;
+            }
+            .search-input {
+                padding: 16px 22px;
+                font-size: 19px;
+            }
+            .search-button {
+                padding: 18px 28px;
+                font-size: 19px;
+            }
+        }
+
+        .headermiddle .icons a {
+            color: #333;
+            text-decoration: none;
+        }
+        .headermiddle .hotline_nb {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .headermiddle .auth-buttons  {
+            padding-right: 10px;
+        }
+        .headermiddle .auth-buttons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            color: #333;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 15px;
+            background-color: #fff;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .headermiddle .auth-buttons a:hover {
+            border: 0.1px solid #333;
+            color: #333;
+            box-shadow: 0 0 1px silver;
+        }
+        .headermiddle .auth-buttons a i {
+            font-size: 20px;
+            margin-right: 20px;
+        }
+        @media (max-width: 768px) {
+        .headermiddle {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .headermiddle .weblogo img {
+            height: 70px;
+            width: 70px;
+            margin-bottom: 10px;
+        }
+
+        .headermiddle .search-bar {
+            width: 90%;
+            margin-bottom: 10px;
+        }
+
+        .headermiddle .hotline_nb {
+            margin-bottom: 10px;
+        }
+
+        .headermiddle .auth-buttons {
+            margin-bottom: 10px;
+        }
+
+        .headermiddle .auth-buttons a {
+            font-size: 16px;
+            padding: 8px 15px;
+        }
+
+        .headermiddle .icons a {
+            font-size: 18px;
+        }
+        }
+        .desktop-navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #484848;
+            padding: 10px;
+            position: sticky;
+        }
+
+        .desktop-navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            position: sticky;
+        }
+
+        .desktop-navbar a:hover {
+            background-color: #333;
+        }
+
+        /* Hide the Toggle Menu (☰) in Web View */
+        .maincategory {
+            display: none; /* Default is hidden */
+        }
+
+        /* Hide the Mobile Navbar in Web View */
+        .mobile-menu {
+            display: none; /* Hidden by default */
+        }
+
+        /* Show Toggle Menu and Mobile Navbar Only in Mobile View */
+        @media (max-width: 768px) {
+            .maincategory {
+                display: block; /* Show toggle menu in mobile view */
+                background-color: #484848;
+                color: white;
+                font-size: 24px;
+                text-align: center;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+            .desktop-navbar {
+                display: none; /* Hide desktop navbar in mobile view */
+            }
+        }
+
+        .header_bottom .maincategory {
+            text-align: center;
+            padding: 10px 5px;
+            color: #ffffff;
+            background-color:#484848; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        }
+        .header_bottom .maincategory nav a {
+            margin: 28.5px;
+            font-size: 19px;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            position: relative; 
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; 
+        }
+        .header_bottom  .maincategory nav a:hover {
+            color: #333; 
+            transform: scale(2.2); 
+            transition: transform 0.1s ;
+            border: 1px solid white;
+            border-radius: 50px;
+            margin: 10px;
+            padding: 9px 15px;
+            background-color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+        }
+        .header_bottom  .maincategory nav a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: #090909;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        .featured_products {
+            text-align: center;
+            padding: 30px 100px;
+        }
+        .featured_products h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            position:flex;
+        }
+        .product-list {
+            justify-content: center;
+            display: flex;
+            overflow-x: auto;
+            padding: 10px;
+            gap: 5px;
+            flex-wrap: wrap; 
+        }
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            margin: 5px;
+            padding: 50px;
+            width: calc(25% - 20px); 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 0 0 auto;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10%;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+        .product .productbody .h5 {
+            font-size: 1.2em;
+            margin: 0 0 10px;
+        }
+        .product p {
+            font-size: 1em;
+            margin: 0 0 10px;
+        }
+        .product .productbody .button {
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1em;
+            background-color: #ffc107;
+            border: none;
+            cursor: pointer;
+        }
+        .product .productbody .button:hover{
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 1024px) {
+            .product {
+                width: calc(33.33% - 20px); 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 20px); 
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product {
+                width: calc(100% - 20px); 
+            }
+        }
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Toggle Button for Mobile */
+        .maincategory {
+            display: none; 
+            background-color: #484848;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .maincategory:hover {
+            background-color: #333;
+        }
+
+        /* Desktop Navbar */
+        .desktop-navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #484848;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .desktop-navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .desktop-navbar a:hover {
+            background-color: #333;
+            transform: scale(1.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            background-color: #484848;
+            position: absolute;
+            top: 50px; 
+            left: 0;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #333;
+        }
+
+        /* Hidden State */
+        .mobile-menu.hidden {
+            display: none;
+        }
+
+        /* Responsive Behavior */
+        @media (max-width: 768px) {
+            .desktop-navbar {
+                display: none; 
+            }
+
+            .maincategory {
+                display: block; 
+            }
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        footer .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        footer .footer-content div {
+            margin: 10px;
+        }
+        footer .footer-content h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        footer .footer-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        footer .footer-content ul li {
+            margin: 5px 0;
+        }
+        footer .footer-content ul li a {
+            color: #ffc107;
+            text-decoration: none;
+        }
+        footer p {
+            margin: 20px 0 0;
+        }
+      </style>
+   </head>
+    <body>
+        <header>
+            <div class="headermiddle">
+               <a class="weblogo" href="index.html">
+               <img alt="CoolGadgets Logo"  src="logo.png" height="80" width="auto">
+               </a>
+               <div class="search-bar">
+                  <input placeholder="Search for products..." class="search-input"/>
+                  <button class="search-button"><i class='bx bx-search'></i></button>
+               </div>
+               <a class="hotline_nb" href="#">
+                  <img alt="Hotline number"  src="hotline.png" height="65" width="auto">
+                  </a>
+               <div class="auth-buttons">
+                  <a href="signup_login.html">
+                     <i class='bx bxs-user-circle'></i>  Account
+                  </a>
+               </div>
+               <div class="icons">
+                  <a href="cart.html">
+                   <i class='bx bxs-cart bx-md' ></i>
+                  </i>
+                  </a>
+               </div>
+            </div>
+            <div class="header_bottom">
+                <div class="maincategory" onclick="toggleMenu()">☰</div>
+            <!-- Desktop Navbar -->
+            <nav class="desktop-navbar">
+                <a class="home" href="index.html">Home</a>
+                <a class="flowers" href="flowers.html">Flowers</a>
+                <a class="jewelry" href="jewelry.html">Jewelry</a>
+                <a class="cakes" href="cakes.html">Cakes</a>
+                <a class="perfumes" href="perfumes.html">Perfumes</a>
+                <a class="about" href="aboutus.html">About Us</a>
+            </nav>
+            <!-- Mobile Navbar -->
+            <nav id="mobileMenu" class="mobile-menu hidden">
+                <a class="home" href="index.html">Home</a>
+                <a class="flowers" href="flowers.html">Flowers</a>
+                <a class="jewelry" href="jewelry.html">Jewelry</a>
+                <a class="cakes" href="cakes.html">Cakes</a>
+                <a class="perfumes" href="perfumes.html">Perfumes</a>
+                <a class="about" href="aboutus.html">About Us</a>
+            </nav>
+                </div>
+         </header>
+         <section class="featured_products" id="flower-bouquets">
+            <h2>
+                Flowers Bouquets
+            </h2>
+            <div class="product-list">
+               <div class="product">
+                  <img alt="Rose Bouquet" height="200" src="rosebouquet.jpeg" width="200">
+                  <div class="productbody">
+                      <h3 class="producttitle">Rose Bouquet</h3>
+                      <p class="productprice">$75.00</p>
+                      <form action="cart.html" method="GET">
+                          <input type="hidden" name="product" value="Rose Bouquet">
+                          <input type="hidden" name="price" value="75.00">
+                          <input type="hidden" name="quantity" value="1">
+                          <input type="submit" class="button" value="Add to Cart">
+                      </form>
+                  </div>
+               </div>
+               <div class="product">
+                  <img alt="Tulips Bouquet" height="200" src="tulipbouquet.jpeg" width="200">
+                  <div class="productbody">
+                      <h3 class="producttitle">Tulips Bouquet</h3>
+                      <p class="productprice">$75.00</p>
+                      <form action="cart.html" method="GET">
+                          <input type="hidden" name="product" value="Tulips Bouquet">
+                          <input type="hidden" name="price" value="75.00">
+                          <input type="hidden" name="quantity" value="1">
+                          <input type="submit" class="button" value="Add to Cart">
+                      </form>
+                  </div>
+               </div>
+               <div class="product">
+                  <img alt="Lilie Bouquet" height="200" src="liliebouquet.jpeg" width="200">
+                  <div class="productbody">
+                      <h3 class="producttitle">Lilie Bouquet</h3>
+                      <p class="productprice">$75.00</p>
+                      <form action="cart.html" method="GET">
+                          <input type="hidden" name="product" value="Lilie Bouquet">
+                          <input type="hidden" name="price" value="75.00">
+                          <input type="hidden" name="quantity" value="1">
+                          <input type="submit" class="button" value="Add to Cart">
+                      </form>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="featured_products" id="seasonal-flowers">
+            <h2>
+               Seasonal Flowers
+            </h2>
+            <div class="product-list">
+               <div class="product">
+                  <img alt="Lotus Flowers" height="200" src="lotus.jpeg" width="200">
+                  <div class="productbody">
+                      <h3 class="producttitle">Lotus Flowers</h3>
+                      <p class="productprice">$75.00</p>
+                      <form action="cart.html" method="GET">
+                          <input type="hidden" name="product" value="Lotus Flowers">
+                          <input type="hidden" name="price" value="75.00">
+                          <input type="hidden" name="quantity" value="1">
+                          <input type="submit" class="button" value="Add to Cart">
+                      </form>
+                  </div>
+               </div>
+               <div class="product">
+                  <img alt="Marigolds Flowers" height="200" src="Marigolds.jpeg" width="200">
+                  <div class="productbody">
+                      <h3 class="producttitle">Marigolds Flowers</h3>
+                      <p class="productprice">$75.00</p>
+                      <form action="cart.html" method="GET">
+                          <input type="hidden" name="product" value="Marigolds Flowers">
+                          <input type="hidden" name="price" value="75.00">
+                          <input type="hidden" name="quantity" value="1">
+                          <input type="submit" class="button" value="Add to Cart">
+                      </form>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="featured_products" id="fragrant-flowers">
+            <h2>
+               Fragrant Flowers
+            </h2>
+            <div class="product-list">
+               <div class="product">
+                  <img alt="Lavender Flowers" height="200" src="lavender.jpeg" width="200">
+                  <div class="productbody">
+                      <h3 class="producttitle">Lavender Flowers</h3>
+                      <p class="productprice">$75.00</p>
+                      <form action="cart.html" method="GET">
+                          <input type="hidden" name="product" value="Lavender Flowers">
+                          <input type="hidden" name="price" value="75.00">
+                          <input type="hidden" name="quantity" value="1">
+                          <input type="submit" class="button" value="Add to Cart">
+                      </form>
+                  </div>
+               </div>
+               <div class="product">
+                  <img alt="Jasmine Flowers" height="200" src="jasmine.jpeg" width="200">
+                  <div class="productbody">
+                      <h3 class="producttitle">Jasmine Flowers</h3>
+                      <p class="productprice">$75.00</p>
+                      <form action="cart.html" method="GET">
+                          <input type="hidden" name="product" value="Jasmine Flowers">
+                          <input type="hidden" name="price" value="75.00">
+                          <input type="hidden" name="quantity" value="1">
+                          <input type="submit" class="button" value="Add to Cart">
+                      </form>
+                  </div>
+               </div>
+               <div class="product">
+                  <img alt="Chamomile Flowers" height="200" src="Chamomile.jpeg" width="200">
+                  <div class="productbody">
+                      <h3 class="producttitle">Chamomile Flowers</h3>
+                      <p class="productprice">$75.00</p>
+                      <form action="cart.html" method="GET">
+                          <input type="hidden" name="product" value="Chamomile Flowers">
+                          <input type="hidden" name="price" value="75.00">
+                          <input type="hidden" name="quantity" value="1">
+                          <input type="submit" class="button" value="Add to Cart">
+                      </form>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <footer>
+        <div class="footer-content">&copy; Copyright 2024 - Aurora Finds</div>
+    </footer>
+    <script>
+      
+function createPopup(message) {
+    
+    const popup = document.createElement('div');
+    popup.classList.add('popup-notification');
+
+    
+    const messageElement = document.createElement('p');
+    messageElement.textContent = message;
+    popup.appendChild(messageElement);
+
+    
+    const button = document.createElement('button');
+    button.textContent = 'OK';
+    button.classList.add('popup-ok-button');
+    popup.appendChild(button);
+
+    
+    document.body.appendChild(popup);
+
+    
+    popup.style.display = 'block';
+
+    
+    button.addEventListener('click', () => {
+        popup.style.display = 'none';
+        document.body.removeChild(popup);
+    });
+}
+
+
+const addToCartButtons = document.querySelectorAll('.addtocart');
+const productForms = document.querySelectorAll('.product form');
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function addToCart(event) {
+    event.preventDefault();
+
+    let product;
+
+    if (event.target.tagName === 'FORM') {
+        const form = event.target;
+        product = {
+            name: form.product.value,
+            price: parseFloat(form.price.value),
+            quantity: parseInt(form.quantity.value),
+        };
+    } else if (event.target.classList.contains('addtocart')) {
+        product = {
+            name: event.target.getAttribute('data-product'),
+            price: parseFloat(event.target.getAttribute('data-price')),
+            quantity: 1,
+        };
+    }
+
+    const existingProduct = cart.find((item) => item.name === product.name);
+
+    if (existingProduct) {
+        existingProduct.quantity += product.quantity;
+    } else {
+        cart.push(product);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    
+    createPopup(`${product.name} has been added to your cart!`);
+}
+
+
+productForms.forEach((form) => {
+    form.addEventListener('submit', addToCart);
+});
+
+addToCartButtons.forEach((button) => {
+    button.addEventListener('click', addToCart);
+});
+
+  </script>
+  <!-- js for mobile menu -->
+  <script>
+    function toggleMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('hidden'); 
+    }
+</script>
+</body>
+</html>

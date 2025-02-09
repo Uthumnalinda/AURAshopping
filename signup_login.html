@@ -1,0 +1,150 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cart - Aurora Finds</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+      .auth-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f7f7f7;
+      padding: 20px;
+    }
+    
+    .auth-container {
+      position: relative;
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .auth-form {
+      display: none;
+    }
+    
+    #signup-radio:checked ~ .auth-form#signup-form,
+    #login-radio:checked ~ .auth-form#login-form {
+      display: block;
+    }
+    
+    .auth-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .auth-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .auth-form input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    .auth-form button {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #212324;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .auth-form button:hover {
+      background-color: #0e1011;
+    }
+    
+    .social-login {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 15px 0;
+    }
+    
+    .social-login a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      color: #333;
+    }
+    
+    .social-login i {
+      font-size: 24px;
+    }
+    
+    .auth-form p {
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    .auth-form a {
+      color: #202326;
+      text-decoration: none;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    </style>
+</head>
+<body>
+     <section class="auth-section">
+        <div class="auth-container">
+          <input type="radio" id="signup-radio" name="auth-toggle" checked>
+          <input type="radio" id="login-radio" name="auth-toggle">
+          <div class="auth-form" id="signup-form">
+            <h2>Create an Account</h2>
+            <form action="#" method="POST">
+              <input type="text" name="username" placeholder="Username" required>
+              <input type="email" name="email" placeholder="Email" required>
+              <input type="password" name="password" placeholder="Password" required>
+              <input type="password" name="confirm-password" placeholder="Confirm Password" required>
+              <button type="submit">Sign Up</button>
+            </form>
+            <p>Or sign up with:</p>
+            <div class="social-login">
+              <a href="#" class="google-login">
+                <i class="bx bxl-google bx-md"></i> Google
+              </a>
+              <a href="#" class="facebook-login">
+                <i class="bx bxl-facebook bx-md"></i> Facebook
+              </a>
+            </div>
+            <p>Already have an account? <label for="login-radio">Login here</label></p>
+          </div>
+          <div class="auth-form" id="login-form">
+            <h2>Login to Your Account</h2>
+            <form action="#" method="POST">
+              <input type="email" name="email" placeholder="Email" required>
+              <input type="password" name="password" placeholder="Password" required>
+              <button type="submit">Login</button>
+            </form>
+            <p>Or login with:</p>
+            <div class="social-login">
+              <a href="#" class="google-login">
+                <i class="bx bxl-google bx-md"></i> Google
+              </a>
+              <a href="#" class="facebook-login">
+                <i class="bx bxl-facebook bx-md"></i> Facebook
+              </a>
+            </div>
+            <p>Don't have an account? <label for="signup-radio">Sign up here</label></p>
+          </div>
+        </div>
+      </section>
+    <footer>
+        <div class="footer-content">&copy; Copyright 2024 - Aurora Finds</div>
+    </footer>
+</body>
+</html>

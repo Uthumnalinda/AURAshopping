@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Creations 🛒</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"rel="stylesheet"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #dfe2e4;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .headermiddle {
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-radius: 10px;
+            padding: 0px 20px;
+        }
+        .headermiddle .weblogo img {
+            height: 100px;
+            width: 100px;
+            padding-left: 10px;
+            padding-right: 10px;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+        .headermiddle .weblogo img:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+        /* Responsive Search Bar */
+        .headermiddle .search-bar {
+            flex: 1;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%; 
+            height: 45px;
+            margin: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px #00000026;
+            background-color: #ffffff;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px; 
+            outline: none;
+            color: #333;
+        }
+
+        .search-button {
+            background-color: #484848;
+            color: white;
+            border: none;
+            padding: 12px 20px; 
+            font-size: 16px; 
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 5px;
+        }
+
+        .search-button:hover {
+            background-color: #323131;
+            transform: scale(1.10);
+        }
+
+        .search-container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 0% 5%;
+        }
+
+        .search-input::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        
+        @media (min-width: 576px) {
+            .search-bar {
+                height: 50px;
+            }
+            .search-input {
+                padding: 12px 18px;
+                font-size: 17px;
+            }
+            .search-button {
+                padding: 14px 22px;
+                font-size: 17px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .search-bar {
+                height: 55px;
+            }
+            .search-input {
+                padding: 14px 20px;
+                font-size: 18px;
+            }
+            .search-button {
+                padding: 16px 25px;
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .search-bar {
+                height: 60px;
+            }
+            .search-input {
+                padding: 16px 22px;
+                font-size: 19px;
+            }
+            .search-button {
+                padding: 18px 28px;
+                font-size: 19px;
+            }
+        }
+
+        .headermiddle .icons a {
+            color: #333;
+            text-decoration: none;
+        }
+        .headermiddle .hotline_nb {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .headermiddle .auth-buttons  {
+            padding-right: 10px;
+        }
+        .headermiddle .auth-buttons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            color: #333;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 15px;
+            background-color: #fff;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .headermiddle .auth-buttons a:hover {
+            border: 0.1px solid #333;
+            color: #333;
+            box-shadow: 0 0 1px silver;
+        }
+        .headermiddle .auth-buttons a i {
+            font-size: 20px;
+            margin-right: 20px;
+        }
+        @media (max-width: 768px) {
+        .headermiddle {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .headermiddle .weblogo img {
+            height: 70px;
+            width: 70px;
+            margin-bottom: 10px;
+        }
+
+        .headermiddle .search-bar {
+            width: 90%;
+            margin-bottom: 10px;
+        }
+
+        .headermiddle .hotline_nb {
+            margin-bottom: 10px;
+        }
+
+        .headermiddle .auth-buttons {
+            margin-bottom: 10px;
+        }
+
+        .headermiddle .auth-buttons a {
+            font-size: 16px;
+            padding: 8px 15px;
+        }
+
+        .headermiddle .icons a {
+            font-size: 18px;
+        }
+        }
+        .desktop-navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #484848;
+            padding: 10px;
+            position: sticky;
+        }
+
+        .desktop-navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            position: sticky;
+        }
+
+        .desktop-navbar a:hover {
+            background-color: #333;
+        }
+
+        /* Hide the Toggle Menu (☰) in Web View */
+        .maincategory {
+            display: none; 
+        }
+
+        
+        .mobile-menu {
+            display: none; 
+        }
+
+        /* Show Toggle Menu and Mobile Navbar Only in Mobile View */
+        @media (max-width: 768px) {
+            .maincategory {
+                display: block;
+                background-color: #484848;
+                color: white;
+                font-size: 24px;
+                text-align: center;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+            .desktop-navbar {
+                display: none;
+            }
+        }
+
+        .header_bottom .maincategory {
+            text-align: center;
+            padding: 10px 5px;
+            color: #ffffff;
+            background-color:#484848; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        }
+        .header_bottom .maincategory nav a {
+            margin: 28.5px;
+            font-size: 19px;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            position: relative; 
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; 
+        }
+        .header_bottom  .maincategory nav a:hover {
+            color: #333; 
+            transform: scale(2.2); 
+            transition: transform 0.1s ;
+            border: 1px solid white;
+            border-radius: 50px;
+            margin: 10px;
+            padding: 9px 15px;
+            background-color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+        }
+        .header_bottom  .maincategory nav a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: #090909;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        /* Banner Container */
+        .banner {
+            position: relative;
+            overflow: hidden; 
+            width: 100%;
+            height: 380px; 
+            max-width: 1445px; 
+            margin: 20px auto; 
+            border-radius: 15px; 
+            z-index: 1; 
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+        }
+
+        .banner-slider {
+            position: relative;
+            width: 100%;
+            height: 100%; 
+        }
+
+        .banner-slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            opacity: 0;
+            transition: opacity 1s ease; 
+        }
+
+        .banner-slider img.active {
+            opacity: 1;
+        }
+
+        /* Additional media queries for responsiveness */
+        @media (min-width: 768px) {
+            .banner {
+                height: 380px; 
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .banner {
+                height: 380px; 
+            }
+        }
+
+        /* Subcategories */
+        .sub-categories {
+            width: max-content;
+            display: flex;
+            overflow: inherit;
+            padding: 10px;
+            margin: 20px 10px;
+            animation: scroll 50s linear infinite;
+            position: sticky;
+            top: 155px; 
+            background-color: rgb(255, 255, 255);
+            border-radius: 25px;
+            z-index: 1; 
+        }
+
+        @keyframes scroll {
+            0% { 
+                transform: translateX(0); 
+            }
+            100% { 
+                transform: translateX(-100%); 
+            }
+        }
+
+        .sub-category {
+            top: 5px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            margin: 10px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 0 1px silver;
+            flex: 0 0 auto;
+        }
+
+        .sub-category a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+        }
+
+        .sub-category img {
+            border-radius: none;
+            margin-right: 10px;
+        }
+
+        .sub-category p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        .flashdeals {
+            text-align: left;
+            margin: 20px 0;
+        }
+        .flashdeals h1 {
+            font-size: 40px;
+            font-weight: 800;
+            margin: 0;
+            padding-left: 30px;
+        }
+        .flashdeals .deal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .flashdeals .deal img {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+        }
+        .flashdeals .dealdetails {
+            margin-left: 40px;
+            font-size: 20px;
+            text-align: left;
+        }
+        .flashdeals .dealdetails h3 {
+            margin: 0;
+            font-size: 40px;
+            font-weight: 700;
+        }
+        .flashdeals .dealdetails p {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        .flashdeals .dealdetails .price {
+            font-size: 25px;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+        .flashdeals .dealdetails .oldprice {
+            text-decoration: line-through;
+            color: #999;
+            margin-left: 10px;
+        }
+        .flashdeals .deal .dealdetails .addtocart {
+            background-color: #600303;
+            font-size: 20px;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer; 
+            border-radius: 50px;    
+        }
+        .flashdeals .deal .dealdetails .addtocart:hover{
+            transform: translateY(5px) scale(0.8);
+            box-shadow: 0px 2px 10px #600303; 
+        }
+
+        .flashdeals .dealdetails .timer {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+    /* Responsive adjustments for mobile view */
+@media (max-width: 768px) {
+    .flashdeals h1 {
+        font-size: 30px;
+        padding-left: 10px;
+    }
+
+    .flashdeals .deal {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .flashdeals .deal img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .flashdeals .dealdetails {
+        margin-left: 0;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .flashdeals .dealdetails h3 {
+        font-size: 25px;
+    }
+
+    .flashdeals .dealdetails p {
+        font-size: 14px;
+    }
+
+    .flashdeals .dealdetails .price {
+        font-size: 18px;
+    }
+
+    .flashdeals .dealdetails .oldprice {
+        font-size: 16px;
+    }
+
+    .flashdeals .deal .dealdetails .addtocart {
+        font-size: 16px;
+    }
+}
+
+    @media (max-width: 576px) {
+        .flashdeals h1 {
+            font-size: 25px;
+            padding-left: 5px;
+        }
+
+        .flashdeals .deal img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+
+        .flashdeals .dealdetails {
+            margin-left: 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .flashdeals .dealdetails h3 {
+            font-size: 20px;
+        }
+
+        .flashdeals .dealdetails p {
+            font-size: 12px;
+        }
+
+        .flashdeals .dealdetails .price {
+            font-size: 16px;
+        }
+
+        .flashdeals .dealdetails .oldprice {
+            font-size: 14px;
+        }
+
+        .flashdeals .deal .dealdetails .addtocart {
+            font-size: 14px;
+        }
+    }
+
+        .featured_products {
+            text-align: center;
+            padding: 30px 100px;
+        }
+
+        .featured_products h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            position: flex;
+        }
+
+        .product-list {
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 5px;
+            max-width: 100%; 
+            margin: 0 auto; 
+        }
+
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            margin: 5px;
+            padding: 20px; 
+            width: calc(25% - 20px); 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 0 0 auto;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10%;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .product .productbody .h5 {
+            font-size: 1.2em;
+            margin: 0 0 10px;
+        }
+
+        .product p {
+            font-size: 1em;
+            margin: 0 0 10px;
+        }
+
+        .product .productbody .button {
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1em;
+            background-color: #ffc107;
+            border: none;
+            cursor: pointer;
+        }
+
+        .product .productbody .button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .product {
+                width: calc(33.33% - 20px); 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 20px); 
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product {
+                width: calc(100% - 20px); 
+            }
+        }
+
+        .contact {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .contact h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact form input, .contact form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact form button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #ffc107;
+            border: none;
+            cursor: pointer;
+        }
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Toggle Button for Mobile */
+        .maincategory {
+            display: none; 
+            background-color: #484848;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .maincategory:hover {
+            background-color: #333;
+        }
+
+        /* Desktop Navbar */
+        .desktop-navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #484848;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .desktop-navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .desktop-navbar a:hover {
+            background-color: #333;
+            transform: scale(1.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            background-color: #484848;
+            position: absolute;
+            top: 50px; 
+            left: 0;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #333;
+        }
+
+        /* Hidden State */
+        .mobile-menu.hidden {
+            display: none;
+        }
+
+        /* Responsive Behavior */
+        @media (max-width: 768px) {
+            .desktop-navbar {
+                display: none; 
+            }
+
+            .maincategory {
+                display: block; 
+            }
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        footer .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        footer .footer-content div {
+            margin: 10px;
+        }
+        footer .footer-content h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        footer .footer-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        footer .footer-content ul li {
+            margin: 5px 0;
+        }
+        footer .footer-content ul li a {
+            color: #ffc107;
+            text-decoration: none;
+        }
+        footer p {
+            margin: 20px 0 0;
+        }
+      </style>
+   </head>
+    <body>
+      <header>
+         <div class="headermiddle">
+            <a class="weblogo" href="index.html">
+            <img alt="CoolGadgets Logo"  src="logo.png" height="80" width="auto">
+            </a>
+            <div class="search-bar">
+               <input placeholder="Search for products..." class="search-input"/>
+               <button class="search-button"><i class='bx bx-search'></i></button>
+            </div>
+            <a class="hotline_nb" href="#">
+               <img alt="Hotline number"  src="hotline.png" height="65" width="auto">
+               </a>
+            <div class="auth-buttons">
+               <a href="signup_login.html">
+                  <i class='bx bxs-user-circle'></i>Account
+               </a>
+            </div>
+            <div class="icons">
+               <a href="cart.html">
+                <i class='bx bxs-cart bx-md' ></i>
+               </i>
+               </a>
+            </div>
+         </div>
+       <div class="header_bottom">
+        <div class="maincategory" onclick="toggleMenu()">☰</div>
+        <!-- Desktop Navbar -->
+        <nav class="desktop-navbar">
+            <a class="home" href="index.html">Home</a>
+            <a class="flowers" href="flowers.html">Flowers</a>
+            <a class="jewelry" href="jewelry.html">Jewelry</a>
+            <a class="cakes" href="cakes.html">Cakes</a>
+            <a class="perfumes" href="perfumes.html">Perfumes</a>
+            <a class="about" href="aboutus.html">About Us</a>
+        </nav>
+        <!-- Mobile Navbar -->
+        <nav id="mobileMenu" class="mobile-menu hidden">
+            <a class="home" href="index.html">Home</a>
+            <a class="flowers" href="flowers.html">Flowers</a>
+            <a class="jewelry" href="jewelry.html">Jewelry</a>
+            <a class="cakes" href="cakes.html">Cakes</a>
+            <a class="perfumes" href="perfumes.html">Perfumes</a>
+            <a class="about" href="aboutus.html">About Us</a>
+        </nav>
+
+       </div>
+      </header>
+      <section class="banner">
+    <div class="banner-slider">
+        <img src="1.png" alt="Banner 1">
+        <img src="2.png" alt="Banner 2">
+        <img src="3.png" alt="Banner 3">
+        <img src="4.png" alt="Banner 4">
+    </div>
+</section>
+
+      <section class="sub-categories">
+         <div class="sub-category">
+            <a href="cakes.html#birthday-cakes">
+            <img alt="Birthday Cakes" height="50" src="birthdaycake.png" width="50"/>
+            <p>
+               Birthday Cakes (3)
+            </p>
+         </a>
+         </div>
+         <div class="sub-category">
+            <a href="jewelry.html#mens-jewelry">
+            <img alt="Men's Jewelry" height="50" src="mensjewelry.png" width="50"/>
+            <p>
+               Men's Jewelry (4)
+            </p>
+         </a>
+         </div>
+         <div class="sub-category">
+            <a href="jewelry.html#wemen-jewelry">
+            <img alt="Women's Jewelry" height="50" src="womensjewelry.png" width="50"/>
+            <p>
+               Women's Jewelry (3)
+            </p>
+         </a>
+         </div>
+         <div class="sub-category">
+            <a href="flowers.html#flower-bouquets">
+            <img alt="Flower Bouquets" height="50" src="flowerboquets.png" width="50"/>
+            <p>
+               Flower Bouquets (3)
+            </p>
+         </a>
+         </div>
+         <div class="sub-category">
+            <a href="perfumes.html#mens-perfumes">
+            <img alt="Men's Perfumes" height="50" src="mensperfumes.png" width="50"/>
+            <p>
+               Men's Perfumes (3)
+            </p>
+           </a>
+         </div>
+         <div class="sub-category">
+            <a href="perfumes.html#womens-perfumes">
+            <img alt="Women's Perfumes" height="50" src="womensperfumes.png" width="50"/>
+            <p>
+               Women's Perfumes (3)
+            </p>
+           </a>
+         </div>
+         <div class="sub-category">
+            <a href="cakes.html#wedding-cakes">
+            <img alt="Wedding Cakes" height="50" src="weddingcakes.png" width="50"/>
+            <p>
+               Wedding Cakes (3)
+            </p>
+         </a>
+         </div>
+         <div class="sub-category">
+            <a href="flowers.html#seasonal-flowers">
+            <img alt="Seasonal Flowers" height="50" src="seasonalflowers.png" width="50"/>
+            <p>
+               Seasonal Flowers (3)
+            </p>
+         </a>
+         </div>
+         
+      </section>
+      <section>
+         <div class="flashdeals">
+            <h1>
+              Flash Deals
+            </h1>
+            <div class="deal">
+              <img alt="Strawberry cake" height="400" src="Chocolatebirthdaycake.jpeg" width="300">
+              <div class="dealdetails">
+                <h3>
+                  Chocalate Cake
+                </h3>
+                <p>
+                  Celebrate birthdays with our delicious Chocolate Cake, made with moist chocolate layers and creamy chocolate frosting. Perfectly decorated for special occasions, it’s the ultimate treat for chocolate lovers. Order now to make every birthday unforgettable!
+                </p>
+                <div>
+                  <span class="price">
+                  $15.00
+                  </span>
+                  <span class="oldprice">
+                  $20.00
+                  </span>
+                </div>
+                <button class="addtocart" data-product="Chocolate Cake" data-price="15.00">
+                ADD TO CART
+                </button>
+                <div class="timer">
+                  HURRY UP! OFFERS END IN:
+                  <span>
+                  12 : 25 : 24
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+      <section class="featured_products">
+         <h2>
+            Featured Products
+         </h2>
+         <div class="product-list">
+            <div class="product">
+               <img alt="Ring" height="200" src="womenring1.jpeg" width="200">
+               <div class="productbody">
+                   <h3 class="producttitle">Ring</h3>
+                   <p class="productprice">$50.00</p>
+                   <form action="cart.html" method="GET">
+                       <input type="hidden" name="product" value="Ring">
+                       <input type="hidden" name="price" value="50.00">
+                       <input type="hidden" name="quantity" value="1">
+                       <input type="submit" class="button" value="Add to Cart">
+                   </form>
+               </div>
+            </div>
+          <div class="product">
+             <img alt="Woody Perfume" height="200" src="woodyperfumemen.jpeg" width="200">
+             <div class="productbody">
+                 <h3 class="producttitle">Woody Perfume</h3>
+                 <p class="productprice">$100.00</p>
+                 <form action="cart.html" method="GET">
+                     <input type="hidden" name="product" value="Woody Perfume">
+                     <input type="hidden" name="price" value="100.00">
+                     <input type="hidden" name="quantity" value="1">
+                     <input type="submit" class="button" value="Add to Cart">
+                 </form>
+             </div>
+          </div>
+          <div class="product">
+             <img alt="Aquatic Perfume" height="200" src="aquaticperfumemen.jpeg" width="200">
+             <div class="productbody">
+                 <h3 class="producttitle">Aquatic Perfume</h3>
+                 <p class="productprice">$100.00</p>
+                 <form action="cart.html" method="GET">
+                     <input type="hidden" name="product" value="Aquatic Perfume">
+                     <input type="hidden" name="price" value="100.00">
+                     <input type="hidden" name="quantity" value="1">
+                     <input type="submit" class="button" value="Add to Cart">
+                 </form>
+             </div>
+          </div>
+          <div class="product">
+             <img alt="Spicy Perfume" height="200" src="spicy.jpeg" width="200">
+             <div class="productbody">
+                 <h3 class="producttitle">Spicy Perfume</h3>
+                 <p class="productprice">$100.00</p>
+                 <form action="cart.html" method="GET">
+                     <input type="hidden" name="product" value="Spicy Perfume">
+                     <input type="hidden" name="price" value="100.00">
+                     <input type="hidden" name="quantity" value="1">
+                     <input type="submit" class="button" value="Add to Cart">
+                 </form>
+             </div>
+          </div>
+          <div class="product">
+            <img alt="Custom Theme Cake" height="200" src="customtheamcake.jpeg" width="200">
+            <div class="productbody">
+                <h3 class="producttitle">Custom Theme Cake</h3>
+                <p class="productprice">$10.00</p>
+                <form action="cart.html" method="GET">
+                    <input type="hidden" name="product" value="Custom Theme Cake">
+                    <input type="hidden" name="price" value="10.00">
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="submit" class="button" value="Add to Cart">
+                </form>
+            </div>
+         </div>
+         <div class="product">
+            <img alt="Chocalate Cake" height="200" src="Chocolatebirthdaycake.jpeg" width="200">
+            <div class="productbody">
+                <h3 class="producttitle">Chocalate Cake</h3>
+                <p class="productprice">$15.00</p>
+                <form action="cart.html" method="GET">
+                    <input type="hidden" name="product" value="Chocalate Cake">
+                    <input type="hidden" name="price" value="15.00">
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="submit" class="button" value="Add to Cart">
+                </form>
+            </div>
+         </div>
+         <div class="product">
+            <img alt="White Chocalate Cake" height="200" src="whitechocalateweddingcake.jpeg" width="200">
+            <div class="productbody">
+                <h3 class="producttitle">White Chocalate Cake</h3>
+                <p class="productprice">$100.00</p>
+                <form action="cart.html" method="GET">
+                    <input type="hidden" name="product" value="White Chocalate Cake">
+                    <input type="hidden" name="price" value="100.00">
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="submit" class="button" value="Add to Cart">
+                </form>
+            </div>
+         </div>
+         <div class="product">
+            <img alt="Raspberry Cake" height="200" src="raspberryweddingcake.jpeg" width="200">
+            <div class="productbody">
+                <h3 class="producttitle">Raspberry Cake</h3>
+                <p class="productprice">$100.00</p>
+                <form action="cart.html" method="GET">
+                    <input type="hidden" name="product" value="Raspberry Cake">
+                    <input type="hidden" name="price" value="100.00">
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="submit" class="button" value="Add to Cart">
+                </form>
+            </div>
+         </div>
+         </div>
+      </section>
+      <section class="contact">
+         <h2>
+            Contact Us
+         </h2>
+         <form>
+            <input name="name" placeholder="Enter your name" type="text"/>
+            <input name="email" placeholder="Enter your email" type="email"/>
+            <textarea name="message" placeholder="Your message" rows="5"></textarea>
+            <button type="submit">
+            Submit
+            </button>
+         </form>
+      </section>
+      <footer>
+         <div class="footer-content">&copy; Copyright 2024 - Aurora Finds</div>
+      </footer>
+      <script>
+           document.addEventListener('DOMContentLoaded', () => {
+        const slider = document.querySelector('.banner-slider');
+        const slides = Array.from(slider.children);
+        const totalSlides = slides.length;
+        let currentSlide = 0;
+        const displayTime = 7000; // 7 seconds
+        const transitionTime = 1000; // 1 second for fade out and fade in
+
+        function slideBanner() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+
+            setTimeout(() => {
+                currentSlide = (currentSlide + 1) % totalSlides; // Move to the next slide
+                slideBanner(); // Continue the loop
+            }, displayTime); // Display time
+        }
+
+        slideBanner(); // Start the loop
+    });
+</script>
+
+    </script>
+
+    </script>
+
+      <script>
+             function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+        </script>
+        
+      <script>
+
+function createPopup(message) {
+    const popup = document.createElement('div');
+    popup.classList.add('popup-notification');
+
+    
+    const messageElement = document.createElement('p');
+    messageElement.textContent = message;
+    popup.appendChild(messageElement);
+
+    
+    document.body.appendChild(popup);
+
+    
+    popup.style.display = 'block';
+
+    
+    setTimeout(() => {
+        popup.style.opacity = '0'; 
+        setTimeout(() => {
+            document.body.removeChild(popup); 
+        }, 500); 
+    }, 1000); 
+}
+
+
+const addToCartButtons = document.querySelectorAll('.addtocart');
+const productForms = document.querySelectorAll('.product form');
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function addToCart(event) {
+    event.preventDefault();
+
+    let product;
+
+    if (event.target.tagName === 'FORM') {
+        const form = event.target;
+        product = {
+            name: form.product.value,
+            price: parseFloat(form.price.value),
+            quantity: parseInt(form.quantity.value),
+        };
+    } else if (event.target.classList.contains('addtocart')) {
+        product = {
+            name: event.target.getAttribute('data-product'),
+            price: parseFloat(event.target.getAttribute('data-price')),
+            quantity: 1,
+        };
+    }
+
+    const existingProduct = cart.find((item) => item.name === product.name);
+
+    if (existingProduct) {
+        existingProduct.quantity += product.quantity;
+    } else {
+        cart.push(product);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    
+    createPopup(`${product.name} has been added to your cart!`);
+}
+
+
+productForms.forEach((form) => {
+    form.addEventListener('submit', addToCart);
+});
+
+addToCartButtons.forEach((button) => {
+    button.addEventListener('click', addToCart);
+});
+
+
+     </script>
+        <!-- js for mobile menu -->
+        <script>
+            function toggleMenu() {
+                const mobileMenu = document.getElementById('mobileMenu');
+                mobileMenu.classList.toggle('hidden'); // Toggle the 'hidden' class
+            }
+        </script>
+        
+    
+   </body>
+</html>
+        

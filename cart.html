@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cart - Aurora Finds</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #dfe2e4;
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Ensure the header stays on top */
+        }
+
+        .headermiddle {
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-radius: 10px;
+            padding: 0px 20px;
+        }
+        .headermiddle .weblogo img {
+            height: 100px;
+            width: 100px;
+            padding-left: 10px;
+            padding-right: 10px;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+        .headermiddle .weblogo img:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+        /* Responsive Search Bar */
+        .headermiddle .search-bar {
+            flex: 1;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%; /* Responsive width */
+            height: 45px;
+            margin: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px #00000026;
+            background-color: #ffffff;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 10px 15px; /* Adjust padding for responsiveness */
+            font-size: 16px; /* Adjust font size for responsiveness */
+            outline: none;
+            color: #333;
+        }
+
+        .search-button {
+            background-color: #484848;
+            color: white;
+            border: none;
+            padding: 12px 20px; /* Adjust padding for responsiveness */
+            font-size: 16px; /* Adjust font size for responsiveness */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 5px;
+        }
+
+        .search-button:hover {
+            background-color: #323131;
+            transform: scale(1.10);
+        }
+
+        .search-container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 0% 5%;
+        }
+
+        .search-input::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (min-width: 576px) {
+            .search-bar {
+                height: 50px;
+            }
+            .search-input {
+                padding: 12px 18px;
+                font-size: 17px;
+            }
+            .search-button {
+                padding: 14px 22px;
+                font-size: 17px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .search-bar {
+                height: 55px;
+            }
+            .search-input {
+                padding: 14px 20px;
+                font-size: 18px;
+            }
+            .search-button {
+                padding: 16px 25px;
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .search-bar {
+                height: 60px;
+            }
+            .search-input {
+                padding: 16px 22px;
+                font-size: 19px;
+            }
+            .search-button {
+                padding: 18px 28px;
+                font-size: 19px;
+            }
+        }
+
+        .headermiddle .icons a {
+            color: #333;
+            text-decoration: none;
+        }
+        .headermiddle .hotline_nb {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .headermiddle .auth-buttons  {
+            padding-right: 10px;
+        }
+        .headermiddle .auth-buttons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            color: #333;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 15px;
+            background-color: #fff;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .headermiddle .auth-buttons a:hover {
+            border: 0.1px solid #333;
+            color: #333;
+            box-shadow: 0 0 1px silver;
+        }
+        .headermiddle .auth-buttons a i {
+            font-size: 20px;
+            margin-right: 20px;
+        }
+        @media (max-width: 768px) {
+        .headermiddle {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .headermiddle .weblogo img {
+            height: 70px;
+            width: 70px;
+            margin-bottom: 10px;
+        }
+
+        .headermiddle .search-bar {
+            width: 90%;
+            margin-bottom: 10px;
+        }
+
+        .headermiddle .hotline_nb {
+            margin-bottom: 10px;
+        }
+
+        .headermiddle .auth-buttons {
+            margin-bottom: 10px;
+        }
+
+        .headermiddle .auth-buttons a {
+            font-size: 16px;
+            padding: 8px 15px;
+        }
+
+        .headermiddle .icons a {
+            font-size: 18px;
+        }
+        }
+        .desktop-navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #484848;
+            padding: 10px;
+            position: sticky;
+        }
+
+        .desktop-navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            position: sticky;
+        }
+
+        .desktop-navbar a:hover {
+            background-color: #333;
+        }
+
+        /* Hide the Toggle Menu (☰) in Web View */
+        .maincategory {
+            display: none; /* Default is hidden */
+        }
+
+        /* Hide the Mobile Navbar in Web View */
+        .mobile-menu {
+            display: none; /* Hidden by default */
+        }
+
+        /* Show Toggle Menu and Mobile Navbar Only in Mobile View */
+        @media (max-width: 768px) {
+            .maincategory {
+                display: block; /* Show toggle menu in mobile view */
+                background-color: #484848;
+                color: white;
+                font-size: 24px;
+                text-align: center;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+            .desktop-navbar {
+                display: none; /* Hide desktop navbar in mobile view */
+            }
+        }
+
+        .header_bottom .maincategory {
+            text-align: center;
+            padding: 10px 5px;
+            color: #ffffff;
+            background-color:#484848; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        }
+        .header_bottom .maincategory nav a {
+            margin: 28.5px;
+            font-size: 19px;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            position: relative; 
+            transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; 
+        }
+        .header_bottom  .maincategory nav a:hover {
+            color: #333; 
+            transform: scale(2.2); 
+            transition: transform 0.1s ;
+            border: 1px solid white;
+            border-radius: 50px;
+            margin: 10px;
+            padding: 9px 15px;
+            background-color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+        }
+        .header_bottom  .maincategory nav a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: #090909;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        .cartsection .carttitle h1 {
+            position: relative;
+            font-weight: 800;
+            display: flex;
+            }
+            .cart-section {
+            padding: 30px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cart-section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #444;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 16px;
+            color: #555;
+        }
+        
+        .cart-item span {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .cart-item .quantity-input {
+            width: 60px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        
+        .cart-item .remove-item {
+            padding: 5px 10px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .cart-item .remove-item:hover {
+            background-color: #c82333;
+        }
+        
+        .cart-total {
+            margin-top: 25px;
+            text-align: right;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        
+        .payment-form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+        
+        .payment-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            padding: 20px;
+            width: 40%; 
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .payment-form h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #444;
+        }
+        
+        .payment-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .payment-form input {
+            width: 94.5%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+            background-color: #fdfdfd;
+        }
+        
+        .payment-form input:focus {
+            border-color: #28a745;
+            outline: none;
+            box-shadow: 0 0 4px rgba(40, 167, 69, 0.3);
+        }
+        
+        .payment-form button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .payment-form button:hover {
+            background-color: #218838;
+            transform: scale(1.02);
+        }
+        
+        .payment-form button:active {
+            background-color: #1e7e34;
+        }
+        
+        .payment-form button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Toggle Button for Mobile */
+        .maincategory {
+            display: none; 
+            background-color: #484848;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .maincategory:hover {
+            background-color: #333;
+        }
+
+        /* Desktop Navbar */
+        .desktop-navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #484848;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .desktop-navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .desktop-navbar a:hover {
+            background-color: #333;
+            transform: scale(1.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            background-color: #484848;
+            position: absolute;
+            top: 50px; 
+            left: 0;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #333;
+        }
+
+        /* Hidden State */
+        .mobile-menu.hidden {
+            display: none;
+        }
+
+        /* Responsive Behavior */
+        @media (max-width: 768px) {
+            .desktop-navbar {
+                display: none; 
+            }
+
+            .maincategory {
+                display: block; 
+            }
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        footer .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        footer .footer-content div {
+            margin: 10px;
+        }
+        footer .footer-content h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        footer .footer-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        footer .footer-content ul li {
+            margin: 5px 0;
+        }
+        footer .footer-content ul li a {
+            color: #ffc107;
+            text-decoration: none;
+        }
+        footer p {
+            margin: 20px 0 0;
+        }
+      </style>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="headermiddle">
+           <a class="weblogo" href="index.html">
+           <img alt="CoolGadgets Logo"  src="logo.png" height="80" width="auto">
+           </a>
+           <div class="search-bar">
+              <input placeholder="Search for products..." class="search-input"/>
+              <button class="search-button"><i class='bx bx-search'></i></button>
+           </div>
+           <a class="hotline_nb" href="#">
+              <img alt="Hotline number"  src="hotline.png" height="65" width="auto">
+              </a>
+           <div class="auth-buttons">
+              <a href="signup_login.html">
+                 <i class='bx bxs-user-circle'></i>  Account
+              </a>
+           </div>
+           <div class="icons">
+              <a href="cart.html">
+               <i class='bx bxs-cart bx-md' ></i>
+              </i>
+              </a>
+           </div>
+        </div>
+        <div class="header_bottom">
+            <div class="maincategory" onclick="toggleMenu()">☰</div>
+            <!-- Desktop Navbar -->
+            <nav class="desktop-navbar">
+                <a class="home" href="index.html">Home</a>
+                <a class="flowers" href="flowers.html">Flowers</a>
+                <a class="jewelry" href="jewelry.html">Jewelry</a>
+                <a class="cakes" href="cakes.html">Cakes</a>
+                <a class="perfumes" href="perfumes.html">Perfumes</a>
+                <a class="about" href="aboutus.html">About Us</a>
+            </nav>
+            <!-- Mobile Navbar -->
+            <nav id="mobileMenu" class="mobile-menu hidden">
+                <a class="home" href="index.html">Home</a>
+                <a class="flowers" href="flowers.html">Flowers</a>
+                <a class="jewelry" href="jewelry.html">Jewelry</a>
+                <a class="cakes" href="cakes.html">Cakes</a>
+                <a class="perfumes" href="perfumes.html">Perfumes</a>
+                <a class="about" href="aboutus.html">About Us</a>
+            </nav>
+     </header>
+<main class="cart-section">
+    <h2>Payment Hub</h2>
+    <div id="cart-items"></div>
+    <div class="cart-total">
+        <h3>Total: $<span id="total-amount">0.00</span></h3>
+    </div>
+    <div class="payment-form-container">
+        <div class="payment-form">
+            <h3>Payment Details</h3>
+            <form id="payment-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Name" required>
+                <label for="address">Address:</label>
+                <input type="text" id="address" placeholder="Address" required>
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" id="mobile" placeholder="Mobile Number" required>
+                <label for="card-number">Credit/Debit Card Number:</label>
+                <input type="text" id="card-number" placeholder="Card Number" required>
+                <label for="date">Expire Date:</label>
+                <input type="text" id="date" placeholder="MM/YY" required>
+                <label for="cvc">CVC:</label>
+                <input type="text" id="cvc" placeholder="CVC" required>
+                <button type="submit" class="button">Pay Now</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+    <footer>
+        <div class="footer-content">&copy; 2024 Aurora Finds. All Rights Reserved.</div>
+    </footer>
+
+    <script>
+       
+const cartItemsContainer = document.getElementById('cart-items');
+const totalAmountElement = document.getElementById('total-amount');
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function updateCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+}
+
+function displayCart() {
+    cartItemsContainer.innerHTML = '';
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        totalAmountElement.textContent = '0.00';
+        return;
+    }
+
+    let totalAmount = 0;
+
+    cart.forEach((item, index) => {
+        const itemRow = document.createElement('div');
+        itemRow.classList.add('cart-item');
+        itemRow.innerHTML = `
+            <span>${item.name}</span>
+            <span>$${item.price.toFixed(2)}</span>
+            <input type="number" min="1" value="${item.quantity}" data-index="${index}" class="quantity-input">
+            <span>$${(item.price * item.quantity).toFixed(2)}</span>
+            <button class="remove-item" data-index="${index}">Remove</button>
+        `;
+        cartItemsContainer.appendChild(itemRow);
+
+        totalAmount += item.price * item.quantity;
+    });
+
+    totalAmountElement.textContent = totalAmount.toFixed(2);
+
+    const quantityInputs = document.querySelectorAll('.quantity-input');
+    quantityInputs.forEach(input => {
+        input.addEventListener('change', event => {
+            const index = parseInt(event.target.dataset.index);
+            const newQuantity = parseInt(event.target.value);
+            if (newQuantity > 0) {
+                cart[index].quantity = newQuantity;
+                updateCart();
+            } else {
+                alert('Quantity must be at least 1.');
+                event.target.value = cart[index].quantity;
+            }
+        });
+    });
+
+    
+    const removeButtons = document.querySelectorAll('.remove-item');
+    removeButtons.forEach(button => {
+        button.addEventListener('click', event => {
+            const index = parseInt(event.target.dataset.index);
+            cart.splice(index, 1); 
+            updateCart();
+        });
+    });
+}
+
+document.getElementById('payment-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
+    const cardNumber = document.getElementById('card-number').value.trim();
+    const cvc = document.getElementById('cvc').value.trim();
+
+    if (!name || !address || !mobile || !cardNumber || !cvc) {
+        alert('Please fill out all fields.');
+        return;
+    }
+
+    if (!/^\d{16}$/.test(cardNumber) || !/^\d{3}$/.test(cvc)) {
+        alert('Invalid card number or CVC.');
+        return;
+    }
+
+    alert('Payment Successful!');
+    localStorage.removeItem('cart');
+    window.location.href = 'index.html';
+});
+
+displayCart();
+
+    </script>
+    <!-- js for mobile menu -->
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden'); // Toggle the 'hidden' class
+        }
+    </script>
+</body>
+</html>
